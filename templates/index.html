@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+    <div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h2>Text Generator</h2>
+                <small>Updated 10/07/2020 (800 Epoch)</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <input type="submit" class="btn btn-primary float-right" onclick="this.disabled=true,this.form.submit();">
+                </form>
+
+            </div>
+        </div>
+        <br>
+        {% if text %}
+            <div class="card">
+            <div class="card-header">
+                <h3>Text Output:</h3>
+            </div>
+            <div class="card-body">
+                {% for tex in text %}
+                <p>{{ tex }}</p>
+                {% endfor %}
+            </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="col-md-3">
+
+    </div>
+    </div>
+{% endblock %}

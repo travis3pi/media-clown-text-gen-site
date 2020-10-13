@@ -1,0 +1,6 @@
+venv
+db.sqlite3
+des-train_config.json
+des-train_vocab.json
+des-train_weights.hdf5
+.idea
